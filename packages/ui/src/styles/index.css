@@ -1,0 +1,1133 @@
+/* ============================================================
+   solana-framework-kit-ui — base styles
+   Auto-injected at runtime via vite-plugin-css-injected-by-js.
+   No manual import needed by consumers.
+   ============================================================ */
+
+/* --- Design tokens (dark theme defaults) --- */
+:root,
+.sfk-root[data-sfk-theme="dark"] {
+  --sfk-accent: #9945ff;
+  --sfk-accent-dark: #7c3aed;
+  --sfk-accent-hover: #8535e8;
+  --sfk-accent-foreground: #ffffff;
+  --sfk-accent-glow: rgba(153, 69, 255, 0.18);
+
+  --sfk-surface: #0f1117;
+  --sfk-surface-2: #1a1d27;
+  --sfk-surface-hover: #1e1b2e;
+  --sfk-surface-active: #22263a;
+
+  --sfk-border: #2e3248;
+  --sfk-border-hover: #3d4260;
+  --sfk-border-accent: rgba(153, 69, 255, 0.5);
+
+  --sfk-text: #e8eaf6;
+  --sfk-text-secondary: #a0a8c8;
+  --sfk-text-muted: #7b82a8;
+
+  --sfk-overlay-bg: rgba(0, 0, 0, 0.65);
+
+  --sfk-success: #14f195;
+  --sfk-success-glow: rgba(20, 241, 149, 0.2);
+  --sfk-danger: #ff4d6d;
+  --sfk-danger-bg: rgba(255, 77, 109, 0.08);
+
+  --sfk-radius: 14px;
+  --sfk-radius-sm: 8px;
+  --sfk-radius-xs: 6px;
+  --sfk-radius-pill: 100px;
+
+  --sfk-font: inherit;
+  --sfk-font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", monospace;
+
+  --sfk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --sfk-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+
+  --sfk-transition: 0.15s ease;
+  --sfk-transition-slow: 0.22s ease;
+}
+
+/* --- Light theme --- */
+.sfk-root[data-sfk-theme="light"] {
+  --sfk-accent: #7c3aed;
+  --sfk-accent-dark: #6d28d9;
+  --sfk-accent-hover: #6d28d9;
+  --sfk-accent-glow: rgba(124, 58, 237, 0.1);
+
+  --sfk-surface: #ffffff;
+  --sfk-surface-2: #f5f5f7;
+  --sfk-surface-hover: #eeeaf7;
+  --sfk-surface-active: #e5e0f5;
+
+  --sfk-border: #e5e5ea;
+  --sfk-border-hover: #d0d0d8;
+  --sfk-border-accent: rgba(124, 58, 237, 0.4);
+
+  --sfk-text: #1c1c1e;
+  --sfk-text-secondary: rgba(28, 28, 30, 0.65);
+  --sfk-text-muted: #8e8e93;
+
+  --sfk-overlay-bg: rgba(0, 0, 0, 0.35);
+
+  --sfk-success: #10b981;
+  --sfk-success-glow: rgba(16, 185, 129, 0.15);
+  --sfk-danger: #ef4444;
+  --sfk-danger-bg: rgba(239, 68, 68, 0.06);
+
+  --sfk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sfk-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Root container --- */
+.sfk-root {
+  font-family: var(--sfk-font);
+  color: var(--sfk-text);
+}
+
+.sfk-root *,
+.sfk-root *::before,
+.sfk-root *::after {
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Focus visible — global accessible focus ring
+   ============================================================ */
+
+.sfk-root *:focus {
+  outline: none;
+}
+
+.sfk-root *:focus-visible {
+  outline: 2px solid var(--sfk-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Trigger button (connect + connected states share this)
+   ============================================================ */
+
+.sfk-account-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px 7px 9px;
+  background: var(--sfk-surface-2);
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius-pill);
+  color: var(--sfk-text);
+  font-family: var(--sfk-font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--sfk-transition), background var(--sfk-transition), opacity
+    var(--sfk-transition);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sfk-account-trigger:hover:not(:disabled) {
+  border-color: var(--sfk-accent);
+}
+
+/* Open state */
+.sfk-account-trigger--open {
+  border-color: var(--sfk-accent);
+}
+
+/* Connect button — gradient style */
+.sfk-account-trigger--connect {
+  background: linear-gradient(135deg, var(--sfk-accent), var(--sfk-accent-dark));
+  border: none;
+  border-radius: var(--sfk-radius-sm);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  gap: 8px;
+}
+
+.sfk-account-trigger--connect:hover:not(:disabled) {
+  opacity: 0.88;
+  border: none;
+}
+
+.sfk-account-trigger--connect:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Disabled / loading */
+.sfk-account-trigger--loading,
+.sfk-account-trigger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   Spinner
+   ============================================================ */
+
+.sfk-spinner {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  /* Use a semi-transparent currentColor for the track so it works on any background */
+  border: 1.5px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: sfk-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.sfk-spinner--sm {
+  width: 13px;
+  height: 13px;
+}
+
+@keyframes sfk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================
+   Overlay (backdrop)
+   ============================================================ */
+
+.sfk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sfk-overlay-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--sfk-transition-slow);
+}
+
+.sfk-overlay--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+   Modal (desktop: centered card)
+   ============================================================ */
+
+.sfk-modal {
+  position: relative;
+  background: var(--sfk-surface);
+  border-radius: var(--sfk-radius-sm);
+  box-shadow: var(--sfk-shadow);
+  border: 1px solid var(--sfk-border);
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  overflow: hidden;
+  padding: 0;
+
+  transform: scale(0.97) translateY(-6px);
+  opacity: 0;
+  transition: transform var(--sfk-transition-slow), opacity var(--sfk-transition-slow);
+}
+
+.sfk-modal--open {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ============================================================
+   Mobile bottom sheet — modal + account dropdown
+   ============================================================ */
+
+/* Backdrop for account dropdown (hidden on desktop) */
+.sfk-account-backdrop {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  /* Close button — larger touch target, stronger color on bottom sheet */
+  .sfk-modal-close {
+    width: 36px;
+    height: 36px;
+    background: var(--sfk-surface-active);
+    border-color: var(--sfk-border-hover);
+    color: var(--sfk-text);
+    border-radius: var(--sfk-radius-sm);
+  }
+
+  /* Overlay stays full-screen backdrop, no longer needs to flex-position the modal */
+  .sfk-overlay {
+    align-items: flex-end;
+  }
+
+  /* Modal: fixed to viewport bottom — bypasses <dialog> UA flex-child issues on iOS */
+  .sfk-modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--sfk-radius-sm) var(--sfk-radius-sm) 0 0;
+    border-bottom: none;
+    /* scale() glitches on iOS Safari inside fixed contexts — translate only */
+    transform: translateY(100%);
+    opacity: 1;
+    padding-bottom: env(safe-area-inset-bottom, 8px);
+  }
+
+  .sfk-modal--open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Drag handle — modal */
+  .sfk-modal::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--sfk-border-hover);
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+
+  /* Account dropdown → bottom sheet */
+  .sfk-account-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background: var(--sfk-overlay-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: sfk-fade-in 0.2s ease;
+  }
+
+  .sfk-account-dropdown {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: unset;
+    width: 100%;
+    max-height: 82vh;
+    overflow-y: auto;
+    border-radius: var(--sfk-radius-sm) var(--sfk-radius-sm) 0 0;
+    border-bottom: none;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    z-index: 9999;
+    animation: sfk-sheet-in 0.25s ease;
+  }
+
+  /* Drag handle — account dropdown */
+  .sfk-account-dropdown::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--sfk-border-hover);
+    border-radius: 2px;
+    margin: 14px auto 6px;
+  }
+}
+
+@keyframes sfk-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sfk-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   Modal — header
+   ============================================================ */
+
+.sfk-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--sfk-border);
+}
+
+.sfk-modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--sfk-text);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.sfk-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: var(--sfk-radius-xs);
+  color: var(--sfk-text-muted);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background var(--sfk-transition), color var(--sfk-transition);
+  flex-shrink: 0;
+}
+
+.sfk-modal-close:hover {
+  background: var(--sfk-surface-2);
+  color: var(--sfk-text);
+}
+
+/* ============================================================
+   Modal — error banner
+   ============================================================ */
+
+.sfk-modal-error {
+  margin: 12px 16px 0;
+  padding: 10px 14px;
+  background: var(--sfk-danger-bg);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  border-radius: var(--sfk-radius-xs);
+  color: var(--sfk-danger);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Modal — body / footer
+   ============================================================ */
+
+.sfk-modal-hint {
+  font-size: 12px;
+  color: var(--sfk-text-muted);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.sfk-modal-body {
+  padding: 16px;
+}
+
+.sfk-modal-footer {
+  padding: 10px 22px 18px;
+  border-top: 1px solid var(--sfk-border);
+}
+
+.sfk-modal-footer-text {
+  font-size: 11px;
+  color: var(--sfk-text-muted);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.sfk-modal-footer-link {
+  color: var(--sfk-text-secondary);
+  text-decoration: none;
+  transition: color var(--sfk-transition);
+}
+
+.sfk-modal-footer-link:hover {
+  color: var(--sfk-text);
+}
+
+/* ============================================================
+   Wallet list
+   ============================================================ */
+
+.sfk-wallet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sfk-wallet-separator {
+  height: 1px;
+  background: var(--sfk-border);
+  margin: 6px 12px;
+}
+
+.sfk-wallet-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sfk-text-muted);
+  padding: 2px 14px 6px;
+}
+
+/* ============================================================
+   Wallet item
+   ============================================================ */
+
+.sfk-wallet-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--sfk-surface-2);
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius-sm);
+  color: var(--sfk-text);
+  font-family: var(--sfk-font);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: background var(--sfk-transition), border-color var(--sfk-transition), transform 0.1s
+    ease;
+  overflow: hidden;
+}
+
+.sfk-wallet-item:hover:not(:disabled):not(.sfk-wallet-item--unsupported) {
+  background: var(--sfk-surface-hover);
+  border-color: var(--sfk-accent);
+  transform: translateX(2px);
+}
+
+.sfk-wallet-item--unsupported {
+  opacity: 0.38;
+  cursor: default;
+}
+
+.sfk-wallet-item--unsupported:hover {
+  opacity: 0.5;
+}
+
+.sfk-wallet-item:disabled {
+  cursor: not-allowed;
+}
+
+.sfk-wallet-item-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sfk-wallet-badge {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sfk-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Last-used / detected badge: green accent */
+.sfk-wallet-badge--last {
+  color: var(--sfk-success);
+}
+
+/* ============================================================
+   Wallet icon
+   ============================================================ */
+
+.sfk-wallet-icon {
+  border-radius: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: var(--sfk-surface);
+}
+
+.sfk-wallet-icon--fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sfk-surface);
+  border: 1px solid var(--sfk-border);
+  border-radius: 10px;
+  color: var(--sfk-text-muted);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Empty state
+   ============================================================ */
+
+.sfk-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.sfk-empty-text {
+  font-size: 14px;
+  color: var(--sfk-text-muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.sfk-empty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--sfk-accent);
+  color: var(--sfk-accent-foreground);
+  text-decoration: none;
+  border-radius: var(--sfk-radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background var(--sfk-transition), box-shadow var(--sfk-transition);
+}
+
+.sfk-empty-link:hover {
+  background: var(--sfk-accent-hover);
+  box-shadow: 0 0 20px var(--sfk-accent-glow);
+}
+
+/* ============================================================
+   Account display — dropdown trigger + panel
+   ============================================================ */
+
+.sfk-account {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Avatar circle — deterministic color from address */
+.sfk-account-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.sfk-account-avatar--lg {
+  width: 40px;
+  height: 40px;
+}
+
+.sfk-account-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Status dot */
+.sfk-account-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--sfk-success);
+  box-shadow: 0 0 6px var(--sfk-success);
+}
+
+/* Muted = not yet connected */
+.sfk-account-dot--idle {
+  background: var(--sfk-text-muted);
+  box-shadow: none;
+}
+
+.sfk-account-wallet-icon {
+  border-radius: 4px;
+}
+
+/* Address/name in monospace — only for real address strings */
+.sfk-account-label {
+  font-family: var(--sfk-font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0;
+}
+
+.sfk-account-chevron {
+  color: var(--sfk-text-muted);
+  font-size: 10px;
+  transition: transform var(--sfk-transition);
+}
+
+.sfk-account-trigger--open .sfk-account-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.sfk-account-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 260px;
+  background: var(--sfk-surface);
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius);
+  box-shadow: var(--sfk-shadow);
+  overflow: hidden;
+  z-index: 9999;
+  animation: sfk-dropdown-in 0.14s ease;
+}
+
+@keyframes sfk-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile header */
+.sfk-profile-header {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--sfk-border);
+}
+
+.sfk-profile-header-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sfk-profile-wallet-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sfk-text);
+}
+
+.sfk-profile-network {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--sfk-text-muted);
+  margin-top: 2px;
+}
+
+.sfk-profile-addr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sfk-font-mono);
+  font-size: 12px;
+  background: var(--sfk-surface-2);
+  padding: 6px 10px;
+  border-radius: var(--sfk-radius-xs);
+}
+
+.sfk-profile-addr-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--sfk-text-secondary);
+}
+
+.sfk-profile-copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--sfk-text-muted);
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color var(--sfk-transition), background var(--sfk-transition);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sfk-profile-copy:hover {
+  color: var(--sfk-success);
+  background: var(--sfk-surface);
+}
+
+.sfk-profile-copy--copied {
+  color: var(--sfk-success);
+}
+
+/* Generic dropdown row */
+.sfk-dropdown-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--sfk-text);
+  font-family: var(--sfk-font);
+  font-size: 13px;
+  text-align: left;
+  cursor: default;
+}
+
+/* Address copy row */
+.sfk-dropdown-copy {
+  cursor: pointer;
+  transition: background var(--sfk-transition);
+}
+
+.sfk-dropdown-copy:hover {
+  background: var(--sfk-surface-hover);
+}
+
+.sfk-dropdown-copy--copied {
+  color: var(--sfk-success);
+}
+
+.sfk-dropdown-address {
+  font-family: var(--sfk-font-mono);
+  font-size: 12px;
+  flex: 1;
+  letter-spacing: 0;
+}
+
+.sfk-dropdown-copy-icon {
+  color: var(--sfk-text-muted);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color var(--sfk-transition);
+}
+
+.sfk-dropdown-copy:hover .sfk-dropdown-copy-icon {
+  color: var(--sfk-text);
+}
+
+.sfk-dropdown-copy--copied .sfk-dropdown-copy-icon {
+  color: var(--sfk-success);
+}
+
+/* Balance row */
+.sfk-dropdown-balance {
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--sfk-border);
+  cursor: default;
+}
+
+.sfk-dropdown-balance-label {
+  color: var(--sfk-text-muted);
+  font-size: 13px;
+}
+
+/* Value: slightly larger + stronger weight for visual hierarchy */
+.sfk-dropdown-balance-value {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--sfk-text);
+  text-align: right;
+}
+
+.sfk-dropdown-balance-value--loading {
+  font-family: var(--sfk-font);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--sfk-text-muted);
+}
+
+/* Separator */
+.sfk-dropdown-separator {
+  height: 1px;
+  background: var(--sfk-border);
+  margin: 2px 0;
+}
+
+/* Profile action rows */
+.sfk-profile-actions {
+  padding: 8px;
+}
+
+.sfk-profile-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--sfk-radius-sm);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--sfk-transition);
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--sfk-text);
+  text-align: left;
+  font-family: var(--sfk-font);
+  text-decoration: none;
+}
+
+.sfk-profile-action:hover {
+  background: var(--sfk-surface-2);
+}
+
+.sfk-profile-action-icon {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sfk-text-muted);
+}
+
+/* Disconnect row — danger-tinted */
+.sfk-dropdown-disconnect {
+  cursor: pointer;
+  color: var(--sfk-danger);
+  opacity: 0.6;
+  gap: 8px;
+  transition: background var(--sfk-transition), opacity var(--sfk-transition);
+}
+
+.sfk-dropdown-disconnect:hover {
+  background: var(--sfk-danger-bg);
+  opacity: 1;
+}
+
+.sfk-dropdown-disconnect:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sfk-dropdown-disconnect:disabled:hover {
+  background: transparent;
+}
+
+.sfk-profile-action--danger {
+  color: var(--sfk-danger);
+}
+
+.sfk-profile-action--danger:hover {
+  background: var(--sfk-danger-bg);
+}
+
+/* ============================================================
+   Network status dot (Feature 12)
+   ============================================================ */
+
+.sfk-network-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background var(--sfk-transition);
+}
+
+.sfk-network-dot--ok {
+  background: var(--sfk-success);
+  box-shadow: 0 0 0 2px var(--sfk-success-glow);
+}
+
+.sfk-network-dot--degraded {
+  background: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.sfk-network-dot--error {
+  background: var(--sfk-danger);
+  box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2);
+}
+
+/* ============================================================
+   Button variants (Feature 5)
+   ============================================================ */
+
+/* Compact: reduced padding, no label text shown */
+.sfk-account-trigger--compact {
+  padding: 5px 8px;
+  gap: 5px;
+}
+
+/* Icon-only: square button, just the dot + wallet icon */
+.sfk-account-trigger--icon {
+  padding: 7px;
+  gap: 0;
+  aspect-ratio: 1;
+  justify-content: center;
+}
+
+/* ============================================================
+   Explorer link row (Feature 1)
+   ============================================================ */
+
+.sfk-dropdown-explorer {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--sfk-text-secondary);
+  transition: background var(--sfk-transition), color var(--sfk-transition);
+  justify-content: space-between;
+}
+
+.sfk-dropdown-explorer:hover {
+  background: var(--sfk-surface-hover);
+  color: var(--sfk-text);
+}
+
+.sfk-dropdown-explorer-label {
+  font-size: 12px;
+  flex: 1;
+}
+
+/* ============================================================
+   Cluster switcher (Feature 2)
+   ============================================================ */
+
+.sfk-cluster-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: default;
+}
+
+.sfk-cluster-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sfk-text-muted);
+}
+
+.sfk-cluster-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.sfk-cluster-pill {
+  font-family: var(--sfk-font);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius-pill);
+  background: transparent;
+  color: var(--sfk-text-secondary);
+  cursor: pointer;
+  transition: background var(--sfk-transition), border-color var(--sfk-transition), color
+    var(--sfk-transition);
+  white-space: nowrap;
+}
+
+.sfk-cluster-pill:hover {
+  background: var(--sfk-surface-hover);
+  border-color: var(--sfk-border-hover);
+  color: var(--sfk-text);
+}
+
+.sfk-cluster-pill--active {
+  background: var(--sfk-accent-glow);
+  border-color: var(--sfk-border-accent);
+  color: var(--sfk-accent);
+}
+
+.sfk-cluster-pill--active:hover {
+  background: var(--sfk-accent-glow);
+  border-color: var(--sfk-accent);
+}
+
+/* ============================================================
+   Recent transactions (Feature 4)
+   ============================================================ */
+
+.sfk-txs-section {
+  padding: 4px 0;
+}
+
+.sfk-txs-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sfk-text-muted);
+  padding: 4px 13px 6px;
+  margin: 0;
+}
+
+.sfk-txs-empty {
+  font-size: 12px;
+  color: var(--sfk-text-muted);
+  padding: 4px 13px 8px;
+  margin: 0;
+}
+
+.sfk-tx-row {
+  text-decoration: none;
+  color: var(--sfk-text-secondary);
+  transition: background var(--sfk-transition), color var(--sfk-transition);
+  cursor: pointer;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.sfk-tx-row:hover {
+  background: var(--sfk-surface-hover);
+  color: var(--sfk-text);
+}
+
+.sfk-tx-status {
+  font-size: 11px;
+  font-weight: 700;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.sfk-tx-status--success {
+  color: var(--sfk-success);
+}
+
+.sfk-tx-status--error {
+  color: var(--sfk-danger);
+}
+
+.sfk-tx-sig {
+  font-family: var(--sfk-font-mono);
+  font-size: 11px;
+  flex: 1;
+  letter-spacing: 0;
+}
+
+.sfk-tx-time {
+  font-size: 11px;
+  color: var(--sfk-text-muted);
+  flex-shrink: 0;
+}

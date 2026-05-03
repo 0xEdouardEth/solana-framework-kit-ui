@@ -1,0 +1,73 @@
+/* Shared trigger button — used by ConnectButton and AccountDisplay */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px 7px 9px;
+  background: var(--sfk-surface-2);
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius-pill);
+  color: var(--sfk-text);
+  font-family: var(--sfk-font);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--sfk-transition), background var(--sfk-transition), opacity
+    var(--sfk-transition);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.trigger:hover:not(:disabled) {
+  border-color: var(--sfk-accent);
+}
+
+/* Open state — accent border */
+.triggerOpen {
+  border-color: var(--sfk-accent);
+}
+
+/* Connect variant — gradient fill */
+.triggerConnect {
+  background: linear-gradient(135deg, var(--sfk-accent), var(--sfk-accent-dark));
+  border: none;
+  border-radius: var(--sfk-radius-sm);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  gap: 8px;
+}
+
+.triggerConnect:hover:not(:disabled) {
+  opacity: 0.88;
+  border: none;
+}
+
+.triggerConnect:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Disabled / loading */
+.triggerLoading,
+.trigger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Compact variant */
+.triggerCompact {
+  padding: 5px 8px;
+  gap: 5px;
+}
+
+/* Icon-only variant */
+.triggerIcon {
+  padding: 7px;
+  gap: 0;
+  aspect-ratio: 1;
+  justify-content: center;
+}

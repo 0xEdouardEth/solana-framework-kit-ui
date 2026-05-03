@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const pt: Labels = {
+  connectWallet: "Conectar carteira",
+  connecting: "Conectando…",
+  disconnect: "Desconectar",
+  disconnecting: "Desconectando…",
+  connectAWallet: "Conectar uma carteira",
+  closeModal: "Fechar janela",
+  noWalletsDetected: "Nenhuma carteira Solana detectada. Instale uma para começar.",
+  getPhantom: "Obter Phantom",
+  notInstalled: "Não instalado",
+  install: "Instalar",
+  balance: "Saldo",
+  copyAddress: "Copiar endereço",
+  addressCopied: "Endereço copiado",
+  viewOnExplorer: "Ver no Explorer",
+  recentTransactions: "Transações recentes",
+  noRecentTransactions: "Sem transações recentes",
+  lastUsed: "Último usado",
+  agreeToTerms: "Ao conectar, você concorda com os",
+  termsOfService: "Termos de serviço",
+  network: "Rede",
+  mainnet: "Mainnet",
+  devnet: "Devnet",
+  testnet: "Testnet",
+};

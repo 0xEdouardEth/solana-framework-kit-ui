@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const zh: Labels = {
+  connectWallet: "连接钱包",
+  connecting: "连接中…",
+  disconnect: "断开连接",
+  disconnecting: "断开中…",
+  connectAWallet: "连接钱包",
+  closeModal: "关闭窗口",
+  noWalletsDetected: "未检测到 Solana 钱包，请安装一个以开始使用。",
+  getPhantom: "获取 Phantom",
+  notInstalled: "未安装",
+  install: "安装",
+  balance: "余额",
+  copyAddress: "复制地址",
+  addressCopied: "地址已复制",
+  viewOnExplorer: "在浏览器中查看",
+  recentTransactions: "最近交易",
+  noRecentTransactions: "暂无最近交易",
+  lastUsed: "上次使用",
+  agreeToTerms: "连接即表示您同意",
+  termsOfService: "服务条款",
+  network: "网络",
+  mainnet: "主网",
+  devnet: "开发网",
+  testnet: "测试网",
+};

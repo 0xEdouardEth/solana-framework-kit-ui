@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.4/schema.json",
+  "access": "public",
+  "baseBranch": "main",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "0xEdouardEth/solana-framework-kit-ui"
+    }
+  ],
+  "commit": false,
+  "linked": [],
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}
