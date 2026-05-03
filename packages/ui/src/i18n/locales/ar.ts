@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const ar: Labels = {
+  connectWallet: "ربط المحفظة",
+  connecting: "جارٍ الاتصال…",
+  disconnect: "قطع الاتصال",
+  disconnecting: "جارٍ قطع الاتصال…",
+  connectAWallet: "ربط محفظة",
+  closeModal: "إغلاق النافذة",
+  noWalletsDetected: "لم يتم اكتشاف أي محفظة Solana. قم بتثبيت إحداها للبدء.",
+  getPhantom: "الحصول على Phantom",
+  notInstalled: "غير مثبت",
+  install: "تثبيت",
+  balance: "الرصيد",
+  copyAddress: "نسخ العنوان",
+  addressCopied: "تم نسخ العنوان",
+  viewOnExplorer: "عرض في المستكشف",
+  recentTransactions: "المعاملات الأخيرة",
+  noRecentTransactions: "لا توجد معاملات أخيرة",
+  lastUsed: "آخر استخدام",
+  agreeToTerms: "بالاتصال، أنت توافق على",
+  termsOfService: "شروط الخدمة",
+  network: "الشبكة",
+  mainnet: "الشبكة الرئيسية",
+  devnet: "شبكة التطوير",
+  testnet: "شبكة الاختبار",
+};

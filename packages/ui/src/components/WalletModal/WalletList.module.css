@@ -1,0 +1,128 @@
+/* ── Wallet list ── */
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.separator {
+  height: 1px;
+  background: var(--sfk-border);
+  margin: 6px 12px;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sfk-text-muted);
+  padding: 2px 14px 6px;
+}
+
+/* ── Wallet item ── */
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--sfk-surface-2);
+  border: 1px solid var(--sfk-border);
+  border-radius: var(--sfk-radius-sm);
+  color: var(--sfk-text);
+  font-family: var(--sfk-font);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: background var(--sfk-transition), border-color var(--sfk-transition), transform 0.1s
+    ease;
+  overflow: hidden;
+}
+
+.item:hover:not(:disabled):not(.itemUnsupported) {
+  background: var(--sfk-surface-hover);
+  border-color: var(--sfk-accent);
+  transform: translateX(2px);
+}
+
+.itemUnsupported {
+  opacity: 0.38;
+  cursor: default;
+}
+
+.itemUnsupported:hover {
+  opacity: 0.5;
+}
+
+.item:disabled {
+  cursor: not-allowed;
+}
+
+.itemName {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sfk-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Last-used / detected badge: green accent */
+.badgeLast {
+  color: var(--sfk-success);
+}
+
+/* ── Empty state ── */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 14px;
+  color: var(--sfk-text-muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.emptyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--sfk-accent);
+  color: var(--sfk-accent-foreground);
+  text-decoration: none;
+  border-radius: var(--sfk-radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background var(--sfk-transition), box-shadow var(--sfk-transition);
+}
+
+.emptyLink:hover {
+  background: var(--sfk-accent-hover);
+  box-shadow: 0 0 20px var(--sfk-accent-glow);
+}

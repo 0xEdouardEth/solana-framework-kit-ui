@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const ko: Labels = {
+  connectWallet: "지갑 연결",
+  connecting: "연결 중…",
+  disconnect: "연결 해제",
+  disconnecting: "해제 중…",
+  connectAWallet: "지갑 연결하기",
+  closeModal: "창 닫기",
+  noWalletsDetected: "Solana 지갑이 감지되지 않았습니다. 시작하려면 지갑을 설치하세요.",
+  getPhantom: "Phantom 다운로드",
+  notInstalled: "미설치",
+  install: "설치",
+  balance: "잔액",
+  copyAddress: "주소 복사",
+  addressCopied: "주소 복사됨",
+  viewOnExplorer: "익스플로러에서 보기",
+  recentTransactions: "최근 트랜잭션",
+  noRecentTransactions: "최근 트랜잭션 없음",
+  lastUsed: "마지막 사용",
+  agreeToTerms: "연결하면 다음에 동의하게 됩니다:",
+  termsOfService: "서비스 약관",
+  network: "네트워크",
+  mainnet: "메인넷",
+  devnet: "개발넷",
+  testnet: "테스트넷",
+};

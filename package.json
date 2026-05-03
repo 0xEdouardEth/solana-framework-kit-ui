@@ -1,0 +1,33 @@
+{
+  "name": "solana-framework-kit-ui-repo",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "bun run --cwd packages/ui build",
+    "dev:ui": "bun run --cwd packages/ui dev",
+    "dev:demo": "bun run build && bun run --cwd packages/demo dev",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "bun run --cwd packages/ui test",
+    "typecheck": "bun run --cwd packages/ui typecheck && bun run --cwd packages/demo typecheck",
+    "size": "bun run build && size-limit",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "changeset publish",
+    "prepare": "husky",
+    "ci": "bun run lint && bun run --cwd packages/ui ci:types && bun run --cwd packages/ui ci:test && bun run --cwd packages/ui ci:build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
+    "@size-limit/file": "^12.1.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "husky": "^9.1.7",
+    "size-limit": "^12.1.0",
+    "typescript": "^6.0.0",
+    "vite": "^6.0.0"
+  }
+}

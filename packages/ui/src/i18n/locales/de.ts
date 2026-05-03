@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const de: Labels = {
+  connectWallet: "Wallet verbinden",
+  connecting: "Verbindung…",
+  disconnect: "Trennen",
+  disconnecting: "Trennung…",
+  connectAWallet: "Wallet verbinden",
+  closeModal: "Fenster schließen",
+  noWalletsDetected: "Keine Solana-Wallet erkannt. Installieren Sie eine, um zu beginnen.",
+  getPhantom: "Phantom installieren",
+  notInstalled: "Nicht installiert",
+  install: "Installieren",
+  balance: "Guthaben",
+  copyAddress: "Adresse kopieren",
+  addressCopied: "Adresse kopiert",
+  viewOnExplorer: "Im Explorer ansehen",
+  recentTransactions: "Letzte Transaktionen",
+  noRecentTransactions: "Keine letzten Transaktionen",
+  lastUsed: "Zuletzt verwendet",
+  agreeToTerms: "Mit der Verbindung stimmen Sie den",
+  termsOfService: "Nutzungsbedingungen zu",
+  network: "Netzwerk",
+  mainnet: "Mainnet",
+  devnet: "Devnet",
+  testnet: "Testnet",
+};

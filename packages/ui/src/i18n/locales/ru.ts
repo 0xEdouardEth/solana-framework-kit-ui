@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const ru: Labels = {
+  connectWallet: "Подключить кошелёк",
+  connecting: "Подключение…",
+  disconnect: "Отключить",
+  disconnecting: "Отключение…",
+  connectAWallet: "Подключить кошелёк",
+  closeModal: "Закрыть окно",
+  noWalletsDetected: "Кошельки Solana не обнаружены. Установите один, чтобы начать.",
+  getPhantom: "Получить Phantom",
+  notInstalled: "Не установлен",
+  install: "Установить",
+  balance: "Баланс",
+  copyAddress: "Скопировать адрес",
+  addressCopied: "Адрес скопирован",
+  viewOnExplorer: "Посмотреть в проводнике",
+  recentTransactions: "Недавние транзакции",
+  noRecentTransactions: "Нет недавних транзакций",
+  lastUsed: "Последний использованный",
+  agreeToTerms: "Подключаясь, вы соглашаетесь с",
+  termsOfService: "Условиями использования",
+  network: "Сеть",
+  mainnet: "Основная сеть",
+  devnet: "Сеть разработки",
+  testnet: "Тестовая сеть",
+};
