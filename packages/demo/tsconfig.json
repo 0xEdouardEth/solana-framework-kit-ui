@@ -12,7 +12,11 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "solana-framework-kit-ui": ["../ui/src/index.ts"],
+      "@/*": ["../ui/src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
