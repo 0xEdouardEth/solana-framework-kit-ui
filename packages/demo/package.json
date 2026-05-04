@@ -1,0 +1,19 @@
+{
+  "name": "solana-framework-kit-ui-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@solana/client": "^1.0.0",
+    "@solana/react-hooks": "^1.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "solana-framework-kit-ui": "workspace:*"
+  },
+  "devDependencies": {}
+}

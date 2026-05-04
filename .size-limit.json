@@ -1,0 +1,8 @@
+[
+  {
+    "name": "solana-framework-kit-ui (ESM)",
+    "path": "packages/ui/dist/index.js",
+    "limit": "13 KB",
+    "gzip": true
+  }
+]

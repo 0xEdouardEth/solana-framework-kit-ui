@@ -1,0 +1,101 @@
+/* ============================================================
+   solana-framework-kit-ui — design tokens
+   Auto-injected at runtime via vite-plugin-css-injected-by-js.
+   No manual import needed by consumers.
+   ============================================================ */
+
+/* --- Design tokens (dark theme defaults) --- */
+:root,
+.sfk-root[data-sfk-theme="dark"] {
+  --sfk-accent: #9945ff;
+  --sfk-accent-dark: #7c3aed;
+  --sfk-accent-hover: #8535e8;
+  --sfk-accent-foreground: #ffffff;
+  --sfk-accent-glow: rgba(153, 69, 255, 0.18);
+
+  --sfk-surface: #0f1117;
+  --sfk-surface-2: #1a1d27;
+  --sfk-surface-hover: #1e1b2e;
+  --sfk-surface-active: #22263a;
+
+  --sfk-border: #2e3248;
+  --sfk-border-hover: #3d4260;
+  --sfk-border-accent: rgba(153, 69, 255, 0.5);
+
+  --sfk-text: #e8eaf6;
+  --sfk-text-secondary: #a0a8c8;
+  --sfk-text-muted: #7b82a8;
+
+  --sfk-overlay-bg: rgba(0, 0, 0, 0.65);
+
+  --sfk-success: #14f195;
+  --sfk-success-glow: rgba(20, 241, 149, 0.2);
+  --sfk-danger: #ff4d6d;
+  --sfk-danger-bg: rgba(255, 77, 109, 0.08);
+
+  --sfk-radius: 14px;
+  --sfk-radius-sm: 8px;
+  --sfk-radius-xs: 6px;
+  --sfk-radius-pill: 100px;
+
+  --sfk-font: inherit;
+  --sfk-font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", monospace;
+
+  --sfk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --sfk-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+
+  --sfk-transition: 0.15s ease;
+  --sfk-transition-slow: 0.22s ease;
+}
+
+/* --- Light theme --- */
+.sfk-root[data-sfk-theme="light"] {
+  --sfk-accent: #7c3aed;
+  --sfk-accent-dark: #6d28d9;
+  --sfk-accent-hover: #6d28d9;
+  --sfk-accent-glow: rgba(124, 58, 237, 0.1);
+
+  --sfk-surface: #ffffff;
+  --sfk-surface-2: #f5f5f7;
+  --sfk-surface-hover: #eeeaf7;
+  --sfk-surface-active: #e5e0f5;
+
+  --sfk-border: #e5e5ea;
+  --sfk-border-hover: #d0d0d8;
+  --sfk-border-accent: rgba(124, 58, 237, 0.4);
+
+  --sfk-text: #1c1c1e;
+  --sfk-text-secondary: rgba(28, 28, 30, 0.65);
+  --sfk-text-muted: #8e8e93;
+
+  --sfk-overlay-bg: rgba(0, 0, 0, 0.35);
+
+  --sfk-success: #10b981;
+  --sfk-success-glow: rgba(16, 185, 129, 0.15);
+  --sfk-danger: #ef4444;
+  --sfk-danger-bg: rgba(239, 68, 68, 0.06);
+
+  --sfk-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sfk-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Root container --- */
+.sfk-root {
+  font-family: var(--sfk-font);
+  color: var(--sfk-text);
+}
+
+.sfk-root *,
+.sfk-root *::before,
+.sfk-root *::after {
+  box-sizing: border-box;
+}
+
+.sfk-root *:focus {
+  outline: none;
+}
+
+.sfk-root *:focus-visible {
+  outline: 2px solid var(--sfk-accent);
+  outline-offset: 2px;
+}

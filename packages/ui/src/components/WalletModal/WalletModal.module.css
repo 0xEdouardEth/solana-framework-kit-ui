@@ -1,0 +1,179 @@
+/* ── Overlay (backdrop) ── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sfk-overlay-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--sfk-transition-slow);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Modal (desktop: centered card) ── */
+
+.modal {
+  position: relative;
+  background: var(--sfk-surface);
+  border-radius: var(--sfk-radius-sm);
+  box-shadow: var(--sfk-shadow);
+  border: 1px solid var(--sfk-border);
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  overflow: hidden;
+  padding: 0;
+  transform: scale(0.97) translateY(-6px);
+  opacity: 0;
+  transition: transform var(--sfk-transition-slow), opacity var(--sfk-transition-slow);
+}
+
+.modalOpen {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ── Mobile bottom sheet ── */
+
+@media (max-width: 600px) {
+  .close {
+    width: 36px;
+    height: 36px;
+    background: var(--sfk-surface-active);
+    border-color: var(--sfk-border-hover);
+    color: var(--sfk-text);
+    border-radius: var(--sfk-radius-sm);
+  }
+
+  .overlay {
+    align-items: flex-end;
+  }
+
+  .modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--sfk-radius-sm) var(--sfk-radius-sm) 0 0;
+    border-bottom: none;
+    transform: translateY(100%);
+    opacity: 1;
+    padding-bottom: env(safe-area-inset-bottom, 8px);
+  }
+
+  .modalOpen {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Drag handle */
+  .modal::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--sfk-border-hover);
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+}
+
+/* ── Header ── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--sfk-border);
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--sfk-text);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: var(--sfk-radius-xs);
+  color: var(--sfk-text-muted);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background var(--sfk-transition), color var(--sfk-transition);
+  flex-shrink: 0;
+}
+
+.close:hover {
+  background: var(--sfk-surface-2);
+  color: var(--sfk-text);
+}
+
+/* ── Error banner ── */
+
+.error {
+  margin: 12px 16px 0;
+  padding: 10px 14px;
+  background: var(--sfk-danger-bg);
+  border: 1px solid rgba(255, 82, 82, 0.2);
+  border-radius: var(--sfk-radius-xs);
+  color: var(--sfk-danger);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ── Body / footer ── */
+
+.hint {
+  font-size: 12px;
+  color: var(--sfk-text-muted);
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.body {
+  padding: 16px;
+}
+
+.footer {
+  padding: 10px 22px 18px;
+  border-top: 1px solid var(--sfk-border);
+}
+
+.footerText {
+  font-size: 11px;
+  color: var(--sfk-text-muted);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.footerLink {
+  color: var(--sfk-text-secondary);
+  text-decoration: none;
+  transition: color var(--sfk-transition);
+}
+
+.footerLink:hover {
+  color: var(--sfk-text);
+}

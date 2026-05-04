@@ -1,0 +1,27 @@
+import type { Labels } from "@/config";
+
+export const ja: Labels = {
+  connectWallet: "ウォレット接続",
+  connecting: "接続中…",
+  disconnect: "切断",
+  disconnecting: "切断中…",
+  connectAWallet: "ウォレットを接続",
+  closeModal: "閉じる",
+  noWalletsDetected: "Solanaウォレットが検出されませんでした。インストールして始めてください。",
+  getPhantom: "Phantomを入手",
+  notInstalled: "未インストール",
+  install: "インストール",
+  balance: "残高",
+  copyAddress: "アドレスをコピー",
+  addressCopied: "アドレスをコピーしました",
+  viewOnExplorer: "エクスプローラーで表示",
+  recentTransactions: "最近のトランザクション",
+  noRecentTransactions: "最近のトランザクションなし",
+  lastUsed: "最後に使用",
+  agreeToTerms: "接続することで、以下に同意します：",
+  termsOfService: "利用規約",
+  network: "ネットワーク",
+  mainnet: "メインネット",
+  devnet: "開発ネット",
+  testnet: "テストネット",
+};
